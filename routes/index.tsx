@@ -38,7 +38,7 @@ export default function Home() {
                 </a>
               </div>
               <div class="flex justify-center">
-                <CopyToClipboard text="deno run -A -r https://deno.land/x/kview/install.ts" />
+                <CopyToClipboard text="deno run -A -r https://kview.deno.dev/install" />
               </div>
             </div>
           </div>
