@@ -4,7 +4,7 @@ export default function Meta(
   {
     title,
     description,
-    image = "/social.png",
+    image = "https://kview.deno.dev/social.png",
     alt = "kview: a web app for Deno KV",
     type = "website",
   }: {
