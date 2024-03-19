@@ -1,9 +1,14 @@
 import Footer from "$components/Footer.tsx";
+import Meta from "$components/Meta.tsx";
 import CopyToClipboard from "$islands/CopyToClipboard.tsx";
 
 export default function Home() {
   return (
     <>
+      <Meta
+        title="kview: a web app for Deno KV"
+        description="View, edit, add, delete, watch, import and export your Deno KV data be it local or remote."
+      />
       <section class="bg-white dark:bg-gray-900">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div class="mr-auto place-self-center lg:col-span-7">
@@ -11,7 +16,7 @@ export default function Home() {
               Your user interface to{" "}
               <a
                 href="https://deno.com/kv"
-                class="text-primary-700 dark:text-primary-500"
+                class="text-primary-700 dark:text-primary-500 underline underline-offset-8"
                 target="_blank"
               >
                 Deno KV
@@ -21,7 +26,7 @@ export default function Home() {
               View, edit, add, delete, watch, import and export your{" "}
               <a
                 href="https://deno.com/kv"
-                class="text-primary-700 dark:text-primary-500"
+                class="text-primary-700 dark:text-primary-500 underline underline-offset-4"
                 target="_blank"
               >
                 Deno KV
@@ -57,7 +62,7 @@ export default function Home() {
               kview focuses on providing a rich interface into{" "}
               <a
                 href="https://deno.com/kv"
-                class="text-primary-700 dark:text-primary-500"
+                class="text-primary-700 dark:text-primary-500 underline underline-offset-4"
                 target="_blank"
               >
                 Deno KV
