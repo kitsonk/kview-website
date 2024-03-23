@@ -3,3 +3,135 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body .markdown h2 {
+  @apply font-bold text-2xl;
+}
+
+body .markdown h3 {
+  @apply font-bold text-xl;
+}
+
+body .markdown h4 {
+  @apply font-bold text-lg;
+}
+
+body .markdown h5 {
+  @apply font-bold;
+}
+
+body .markdown a {
+  @apply text-primary-600 dark:text-primary-400 underline;
+}
+
+body .markdown p {
+  @apply py-4;
+}
+
+body .markdown .lead {
+  @apply text-xl;
+}
+
+body .markdown .ol {
+  @apply list-decimal px-4 space-y-2 mb-4;
+}
+
+body .markdown .ul {
+  @apply list-disc px-4 space-y-2 mb-4;
+}
+
+body .markdown blockquote {
+  @apply p-4 my-4 bg-gray-50 border-l-4 border-gray-300 italic font-medium leading-relaxed text-gray-900 dark:border-gray-500 dark:bg-gray-800 dark:text-white;
+}
+
+body .markdown code {
+  @apply p-1 bg-gray-50 dark:bg-gray-800;
+}
+
+body .markdown pre {
+  @apply my-6 py-2 px-4 bg-gray-50 dark:bg-gray-800 rounded overflow-x-auto;
+}
+
+body .markdown pre > code {
+  @apply p-0;
+}
+
+body .markdown table {
+  @apply w-full my-8;
+}
+
+body .markdown thead {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+body .markdown th {
+  @apply font-bold;
+}
+
+body .markdown img {
+  @apply my-8;
+}
+
+body .markdown figure {
+  @apply py-4;
+}
+
+body .markdown figure > img {
+  @apply my-0;
+}
+
+body .markdown figcaption {
+  @apply text-center py-4 text-gray-500;
+}
+
+body .highlight .token {
+  @apply text-green-600 dark:text-green-400;
+}
+
+body .highlight .token.attr-name {
+  @apply text-blue-500;
+}
+
+body .highlight .token.class-name {
+  @apply text-blue-600 dark:text-blue-400;
+}
+
+body .highlight .token.comment {
+  @apply text-green-600 dark:text-green-400;
+}
+
+body .highlight .token.function {
+  @apply text-orange-600 dark:text-orange-400;
+}
+
+body .highlight .token.keyword {
+  @apply text-purple-700 dark:text-purple-500;
+}
+
+body .highlight .token.number {
+  @apply text-purple-600 dark:text-purple-400;
+}
+
+body .highlight .token.operator {
+  @apply text-yellow-800 dark:text-yellow-500;
+}
+
+body .highlight .token.punctuation {
+  @apply text-black dark:text-white;
+}
+
+body .highlight .token.regex .token {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+body .highlight .token.regex .token.regex-delimiter {
+  @apply text-red-900 dark:text-red-600;
+}
+
+body .highlight .token.string {
+  @apply text-yellow-700 dark:text-yellow-400;
+}
+
+body .highlight .token.tag {
+  @apply text-yellow-800 dark:text-yellow-500;
+}
