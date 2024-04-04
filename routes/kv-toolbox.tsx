@@ -136,7 +136,8 @@ export default function KvToolbox() {
               Working with arbitrarily size blobs like{" "}
               <code>Uint8Array</code>s, byte <code>ReadableStream</code>s,{" "}
               <code>Blob</code>s and{" "}
-              <code>File</code>s and manage Deno KV's 64k per entry value limit.
+              <code>File</code>s, stream blob values to a browser, and manage
+              Deno KV's 64k per entry value limit.
             </p>
             <a
               href="https://jsr.io/@kitsonk/kv-toolbox/doc/blob/~"
@@ -150,9 +151,14 @@ export default function KvToolbox() {
             code={`import {
   get,
   getAsBlob,
+  getAsJSON,
+  getAsResponse,
   getAsStream,
-  set,
+  getMeta,
   remove,
+  set,
+  toJSON,
+  toValue,
 } from "@kitsonk/kv-toolbox/blob";
 `}
           />
@@ -198,7 +204,9 @@ export default function KvToolbox() {
             </h2>
             <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
               Create atomic transactions without having to worry about Deno KV's
-              limitations of 16 operations per transaction.
+              limitations per transaction as well as provide atomic transactions
+              for blobs via <code>.checkBlob()</code> and{" "}
+              <code>.setBlob()</code>.
             </p>
             <a
               href="https://jsr.io/@kitsonk/kv-toolbox/doc/batched_atomic/~"
@@ -216,7 +224,12 @@ export default function KvToolbox() {
 const kv = await Deno.openKv();
 await batchedAtomic(kv)
   .check({ key: ["hello"], versionstamp: null })
+  .checkBlob({ key: ["video"], versionstamp: null })
   .set(["hello"], "deno kv")
+  .setBlob(
+    ["video"],
+    new Blob([], { type: "video/mp4" }),
+  )
   .commit();
 
 await kv.close();
