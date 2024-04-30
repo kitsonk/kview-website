@@ -18,7 +18,7 @@ export default function Footer() {
         </p>
         <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
           <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6 ">
+            <a href="/docs" class="mr-4 hover:underline md:mr-6 ">
               Documentation
             </a>
           </li>

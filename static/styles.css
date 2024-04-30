@@ -4,134 +4,185 @@
 @tailwind components;
 @tailwind utilities;
 
-body .markdown h2 {
-  @apply font-bold text-2xl;
+.container {
+  max-width: calc(100% - 300px);
+  flex-grow: 1;
 }
 
-body .markdown h3 {
-  @apply font-bold text-xl;
+.scrollbar-thin {
+  scrollbar-width: thin;
 }
 
-body .markdown h4 {
-  @apply font-bold text-lg;
+.markdown h1 {
+  @apply font-bold text-4xl pb-4 scroll-mt-16;
 }
 
-body .markdown h5 {
-  @apply font-bold;
+.markdown h2 {
+  @apply font-bold text-3xl mt-4 pb-4 border-b border-gray-500 scroll-mt-16;
 }
 
-body .markdown a {
+.markdown h3 {
+  @apply font-bold text-xl scroll-mt-16;
+}
+
+.markdown h4 {
+  @apply font-bold text-lg scroll-mt-16;
+}
+
+.markdown h5 {
+  @apply font-bold scroll-mt-16;
+}
+
+.markdown h6 {
+  @apply scroll-mt-16;
+}
+
+.markdown a {
   @apply text-primary-600 dark:text-primary-400 underline;
 }
 
-body .markdown p {
+.markdown p {
   @apply py-4;
 }
 
-body .markdown .lead {
+.markdown .lead {
   @apply text-xl;
 }
 
-body .markdown .ol {
+.markdown .ol {
   @apply list-decimal px-4 space-y-2 mb-4;
 }
 
-body .markdown .ul {
+.markdown .ul {
   @apply list-disc px-4 space-y-2 mb-4;
 }
 
-body .markdown blockquote {
+.markdown blockquote {
   @apply p-4 my-4 bg-gray-50 border-l-4 border-gray-300 italic font-medium leading-relaxed text-gray-900 dark:border-gray-500 dark:bg-gray-800 dark:text-white;
 }
 
-body .markdown code {
+.markdown code {
   @apply p-1 bg-gray-50 dark:bg-gray-800;
 }
 
-body .markdown pre {
+.markdown pre {
   @apply my-6 py-2 px-4 bg-gray-50 dark:bg-gray-800 rounded overflow-x-auto;
 }
 
-body .markdown pre > code {
+.markdown pre > code {
   @apply p-0;
 }
 
-body .markdown table {
-  @apply w-full my-8;
+.markdown table {
+  @apply table-auto;
 }
 
-body .markdown thead {
-  @apply bg-gray-50 dark:bg-gray-800;
+.markdown th {
+  @apply font-bold text-center;
 }
 
-body .markdown th {
-  @apply font-bold;
+.markdown td {
+  @apply p-2 border border-solid border-gray-500 dark:border-gray-400;
 }
 
-body .markdown img {
-  @apply my-8;
+.markdown ul {
+  @apply list-disc list-inside lg:list-outside lg:mx-6;
 }
 
-body .markdown figure {
+.markdown img {
+  @apply my-2;
+}
+
+.markdown figure {
   @apply py-4;
 }
 
-body .markdown figure > img {
+.markdown figure > img {
   @apply my-0;
 }
 
-body .markdown figcaption {
+.markdown figcaption {
   @apply text-center py-4 text-gray-500;
 }
 
-body .highlight .token {
+.markdown .anchor {
+  @apply float-left -ml-6 pr-1 leading-4;
+}
+
+.markdown svg.octicon {
+  @apply fill-current;
+}
+
+.markdown .anchor > .octicon {
+  @apply inline;
+}
+
+.markdown h1 .octicon-link,
+.markdown h2 .octicon-link,
+.markdown h3 .octicon-link,
+.markdown h4 .octicon-link,
+.markdown h5 .octicon-link,
+.markdown h6 .octicon-link {
+  @apply invisible mt-2;
+}
+
+.markdown h1:hover .octicon-link,
+.markdown h2:hover .octicon-link,
+.markdown h3:hover .octicon-link,
+.markdown h4:hover .octicon-link,
+.markdown h5:hover .octicon-link,
+.markdown h6:hover .octicon-link {
+  @apply visible;
+}
+
+.highlight .token {
   @apply text-green-600 dark:text-green-400;
 }
 
-body .highlight .token.attr-name {
+.highlight .token.attr-name {
   @apply text-blue-500;
 }
 
-body .highlight .token.class-name {
+.highlight .token.class-name {
   @apply text-blue-600 dark:text-blue-400;
 }
 
-body .highlight .token.comment {
+.highlight .token.comment {
   @apply text-green-600 dark:text-green-400;
 }
 
-body .highlight .token.function {
+.highlight .token.function {
   @apply text-orange-600 dark:text-orange-400;
 }
 
-body .highlight .token.keyword {
+.highlight .token.keyword {
   @apply text-purple-700 dark:text-purple-500;
 }
 
-body .highlight .token.number {
+.highlight .token.number {
   @apply text-purple-600 dark:text-purple-400;
 }
 
-body .highlight .token.operator {
+.highlight .token.operator {
   @apply text-yellow-800 dark:text-yellow-500;
 }
 
-body .highlight .token.punctuation {
+.highlight .token.punctuation {
   @apply text-black dark:text-white;
 }
 
-body .highlight .token.regex .token {
+.highlight .token.regex .token {
   @apply text-yellow-600 dark:text-yellow-400;
 }
 
-body .highlight .token.regex .token.regex-delimiter {
+.highlight .token.regex .token.regex-delimiter {
   @apply text-red-900 dark:text-red-600;
 }
 
-body .highlight .token.string {
+.highlight .token.string {
   @apply text-yellow-700 dark:text-yellow-400;
 }
 
-body .highlight .token.tag {
+.highlight .token.tag {
   @apply text-yellow-800 dark:text-yellow-500;
 }

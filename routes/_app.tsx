@@ -22,7 +22,7 @@ export default function App({ Component }: PageProps) {
 
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body class="dark:bg-gray-900 dark:text-white">
+      <body class="dark:bg-gray-900 dark:text-white h-full">
         <Component />
       </body>
     </html>

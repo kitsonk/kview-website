@@ -4,8 +4,9 @@
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
     "manifest": "deno task cli manifest $(pwd)",
-    "start": "deno run -A --watch=static/,routes/ dev.ts",
-    "build": "deno run -A dev.ts build",
+    "start": "deno run -A --unstable-kv --watch=static/,routes/,utils/,docs/ dev.ts",
+    "build": "deno task minify && deno run -A --unstable-kv dev.ts build",
+    "minify": "deno run -A minify.ts",
     "preview": "deno run -A main.ts",
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
@@ -22,7 +23,10 @@
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "@deno/gfm": "jsr:/@deno/gfm@0.8.0",
-    "@std/dotenv/": "jsr:/@std/dotenv@0.221/",
+    "@std/assert/": "jsr:/@std/assert@0.223/",
+    "@std/dotenv/": "jsr:/@std/dotenv@0.223/",
+    "@std/fs/": "jsr:/@std/fs@0.223/",
+    "@std/path/": "jsr:/@std/path@0.223/",
     "$components/": "./components/",
     "$islands/": "./islands/"
   },
