@@ -57,6 +57,44 @@ export default function KvToolbox() {
       </section>
       <section class="bg-white dark:bg-gray-900">
         <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+          <CodeBlock
+            code={`import {
+  generateKey,
+  openCryptoKv,
+} from "@kitsonk/kv-toolbox/crypto";
+
+const kv = await openCryptoKv(generateKey());
+const res = await kv.setBlob(
+  ["hello"],
+  window.crypto.getRandomValues(new Uint8Array(65_536)),
+);
+if (res.ok) {
+  const maybeValue = await kv.getBlob(["hello"]);
+  await kv.deleteBlob(["hello"]);
+}
+kv.close();
+`}
+          />
+          <div class="mt-4 md:mt-0">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+              Store encrypted values
+            </h2>
+            <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+              Encrypt and decrypt Deno KV values, ensuring that data at rest is
+              secure.
+            </p>
+            <a
+              href="https://jsr.io/@kitsonk/kv-toolbox/doc/crypto/~"
+              target="_blank"
+              class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
+            >
+              See the docs
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="bg-white dark:bg-gray-900">
+        <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
           <div class="mt-4 md:mt-0">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
               Represent Deno KV data as JSON
