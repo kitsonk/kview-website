@@ -24,18 +24,6 @@ export default function App({ Component }: PageProps) {
       </head>
       <body class="dark:bg-gray-900 dark:text-white h-full">
         <Component />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-D5BPQ59ET7"
-        >
-        </script>
-        <script>
-          {`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D5BPQ59ET7');`}
-        </script>
       </body>
     </html>
   );
