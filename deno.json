@@ -11,9 +11,10 @@
     "update": "deno run -A -r https://fresh.deno.dev/update ."
   },
   "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "fmt": { "exclude": ["./index.json"] },
   "exclude": ["**/_fresh/*"],
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.6.8/",
+    "$fresh/": "https://deno.land/x/fresh@1.7.1/",
     "preact": "https://esm.sh/preact@10.19.6",
     "preact/": "https://esm.sh/preact@10.19.6/",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
@@ -22,15 +23,15 @@
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-    "@deno/gfm": "jsr:/@deno/gfm@0.8.0",
+    "@deno/gfm": "jsr:/@deno/gfm@0.9.0",
     "@kitsonk/ga4": "jsr:/@kitsonk/ga4@^0.1.0",
-    "@std/assert/": "jsr:/@std/assert@0.223/",
-    "@std/dotenv/": "jsr:/@std/dotenv@0.223/",
-    "@std/fs/": "jsr:/@std/fs@0.223/",
-    "@std/path/": "jsr:/@std/path@0.223/",
+    "@std/assert/": "jsr:/@std/assert@~1/",
+    "@std/dotenv/": "jsr:/@std/dotenv@0.225/",
+    "@std/fs/": "jsr:/@std/fs@~1/",
+    "@std/path/": "jsr:/@std/path@~1/",
     "$components/": "./components/",
     "$islands/": "./islands/"
   },
   "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
-  "nodeModulesDir": true
+  "nodeModulesDir": "auto"
 }

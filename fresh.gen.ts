@@ -13,7 +13,7 @@ import * as $install from "./routes/install.ts";
 import * as $kv_toolbox from "./routes/kv-toolbox.tsx";
 import * as $CopyText from "./islands/CopyText.tsx";
 import * as $CopyToClipboard from "./islands/CopyToClipboard.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {

@@ -10,7 +10,7 @@ export default function CopyToClipboard({ text }: { text: string }) {
         <button
           aria-label="Copy to Clipboard"
           class="rounded p-1.5 border border-gray-300 hover:bg-gray-700 relative"
-          onClick={(evt) => {
+          onClick={() => {
             navigator.clipboard.writeText(text);
             copied.value = true;
             setTimeout(() => copied.value = false, 1000);
