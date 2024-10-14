@@ -1,9 +1,10 @@
 import { type RouteContext } from "$fresh/server.ts";
+import DocIndex from "$components/DocIndex.tsx";
+import Header from "$components/Header.tsx";
+import Meta from "$components/Meta.tsx";
+import Toc from "$components/Toc.tsx";
 
 import index from "../../index.json" with { type: "json" };
-import DocIndex from "../../components/DocIndex.tsx";
-import Header from "../../components/Header.tsx";
-import Toc from "../../components/Toc.tsx";
 import { type DocPage } from "../../utils/docs.ts";
 
 export default async function Docs(
@@ -16,8 +17,14 @@ export default async function Docs(
     return renderNotFound();
   }
   const { html: __html, headers } = value;
+  const title = headers.find(({ depth }) => depth === 1)?.header ?? "";
   return (
     <>
+      <Meta
+        title={title}
+        description={`kview documentation for ${title.toLocaleLowerCase()}`}
+        type="article"
+      />
       <Header />
       <div class="flex mx-auto max-w-screen-xl overscroll-none min-h-full">
         <DocIndex index={index} />

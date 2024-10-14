@@ -1,7 +1,8 @@
 # Primitives
 
 Primitive values are the are the most direct and least complicated way of
-dealing with values in kview.
+dealing with values in kview. Deno KV supports storing of all JavaScript
+primitives with the exception of symbols.
 
 ## String
 

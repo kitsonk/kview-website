@@ -1,8 +1,8 @@
 import { render } from "@deno/gfm";
 import CopyText from "$islands/CopyText.tsx";
 
-import "prismjs/components/prism-typescript?no-check";
-import "prismjs/components/prism-bash?no-check";
+import "prismjs/components/prism-typescript.js";
+import "prismjs/components/prism-bash.js";
 
 export default function CodeBlock(
   { code, setup }: { code: string; setup?: string },

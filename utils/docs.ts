@@ -3,6 +3,9 @@ import { walk } from "@std/fs/walk";
 import { SEPARATOR } from "@std/path/constants";
 import { render, stripSplitBySections } from "@deno/gfm";
 
+import "prismjs/components/prism-json.js";
+import "prismjs/components/prism-typescript.js";
+
 const DOCS_PATH = "../docs";
 const KEY_DOCS = ["docs"];
 
