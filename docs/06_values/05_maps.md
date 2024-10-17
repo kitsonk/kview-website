@@ -18,7 +18,6 @@ For example, a map with three entries would look like this:
 ```
 
 > [!IMPORTANT]
-> While maps keys and values can be of any type that is storable in Deno KV, the
-> entries are currently serialized to JSON making it not possible to represent
-> values not able to be serialized to JSON, like bigint, buffers, sets, dates,
-> regexp, and other maps.
+> While map keys and values can be of any type that is storable in Deno KV, a
+> map which contain keys or values that are not expressible in JSON will be
+> displayed, but the value will not be editable within kview.

@@ -22,9 +22,9 @@ The support table is seen below:
 | [Undefined](./values/primatives#undefined) | ✅   | ✅  |        | Values can be changed to `undefined` but the value itself is not editable intentionally.                                                                        |
 | Null                                       | ✅   | ✅  |        | Values can be changed to `null` but the value itself is not editable intentionally.                                                                             |
 | [`Deno.KvU64`](./values/kvu)               | ✅   | ✅  | ✅     | Values are entered/edited as number digits                                                                                                                      |
-| [`Array`](./values/arrays)                 | ✅   | ✅  | ✅     | Values are entered/edited as JSON arrays                                                                                                                        |
-| [`Map`](./values/maps)                     | ✅   | ✅  | ✅     | Values are entered/edited as JSON array tuples of key and values                                                                                                |
-| [`Set`](./values/sets)                     | ✅   | ✅  | ✅     | Values are entered/edited as JSON arrays                                                                                                                        |
+| [`Array`](./values/arrays)                 | ✅   | ✅  | ✅[^1] | Values are entered/edited as JSON arrays                                                                                                                        |
+| [`Map`](./values/maps)                     | ✅   | ✅  | ✅[^1] | Values are entered/edited as JSON array tuples of key and values                                                                                                |
+| [`Set`](./values/sets)                     | ✅   | ✅  | ✅[^1] | Values are entered/edited as JSON arrays                                                                                                                        |
 | [`Date`](./values/dates)                   | ✅   | ✅  | ✅     | Values are entered/edited as ISO strings in the format of `YYYY-MM-DDTHH:mm:ss.sssZ` or `±YYYYYY-MM-DDTHH:mm:ss.sssZ`                                           |
 | [`RegExp`](./values/regexp)                | ✅   | ✅  | ✅     | Values are entered/edited as JavaScript regular expression literals (e.g. `/abcd/i`)                                                                            |
 | [`Error`](./values/errors)                 | ✅   |     |        |                                                                                                                                                                 |
@@ -49,4 +49,7 @@ The support table is seen below:
 | [Binary Data](./values/blobs#binary-data)  | ✅   | ✅  | ✅     | Values are added/updated by loading files. Only byte length is available as view. This is stored across multiple keys via kv-toolbox.                           |
 | [`Blob`](./values/blobs#blob-and-file)     | ✅   | ✅  | ✅     | Values are added/updated by loading files. If the type can be displayed in a browser, it will be displayed. This is stored across multiple keys via kv-toolbox. |
 | [`File`](./values/blobs#blob-and-file)     | ✅   | ✅  | ✅     | Values are added/updated by loading files. If the type can be displayed in a browser, it will be displayed. This is stored across multiple keys via kv-toolbox. |
-| [JSON](./values/objects)                   | ✅   | ✅  | ✅     | Other `object`s use the structured clone algorithm and added/updated by entering a JSON value.                                                                  |
+| [Objects/JSON](./values/objects)           | ✅   | ✅  | ✅[^1] | Other `object`s use the structured clone algorithm and added/updated by entering a JSON value.                                                                  |
+
+[^1]: Objects, arrays, Maps, and Sets which contain values which cannot be
+    serialized to JSON will not be editable.

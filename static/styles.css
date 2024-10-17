@@ -189,6 +189,27 @@
   @apply text-red-600;
 }
 
+.markdown [data-footnote-ref]::before {
+  content: "[";
+}
+
+.markdown [data-footnote-ref]::after {
+  content: "]";
+}
+
+.markdown sup {
+  @apply -top-2 text-xs;
+}
+
+.markdown .footnotes {
+  @apply mt-4 text-xs border-t border-gray-400 dark:border-gray-500
+    text-gray-400 dark:text-gray-500;
+}
+
+.markdown .footnotes h2 {
+  @apply px-4 py-2;
+}
+
 .highlight .token {
   @apply text-green-600 dark:text-green-400;
 }

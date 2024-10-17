@@ -15,6 +15,5 @@ format. For example:
 
 > [!IMPORTANT]
 > While array elements can be of any type that is storable in Deno KV, the
-> elements are currently serialized to JSON making it not possible to represent
-> values not able to be serialized to JSON, like bigint, buffers, sets, dates,
-> regexp, and maps.
+> arrays which contain elements that are not expressible in JSON will be
+> displayed, but the value will not be editable within kview.

@@ -18,7 +18,6 @@ three entries would look like this:
 ```
 
 > [!IMPORTANT]
-> While set entries can be of any type that is storable in Deno KV, the entries
-> are currently serialized to JSON making it not possible to represent values
-> not able to be serialized to JSON, like bigint, buffers, maps, dates, regexp,
-> and other sets.
+> While set values can be of any type that is storable in Deno KV, a set which
+> contains values that are not expressible in JSON will be displayed, but the
+> value will not be editable within kview.
