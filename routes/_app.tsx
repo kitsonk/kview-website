@@ -9,10 +9,12 @@ export default function App({ Component }: PageProps) {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:domain" content="kview.deno.dev" />
+        <meta name="twitter:url" content="https://kview.deno.dev" />
         <meta name="twitter:site" content="@kitsonk" />
         <meta name="twitter:creator" content="@kitsonk" />
 
         <meta property="og:site_name" content="kview: a web app for Deno KV" />
+        <meta property="og:url" content="https://kview.deno.dev" />
         <meta property="og:locale" content="en_AU" />
 
         <meta
