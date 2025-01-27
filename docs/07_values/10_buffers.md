@@ -1,4 +1,4 @@
-# ArrayBuffers and Typed Arrays
+# ArrayBuffers and typed arrays
 
 `ArrayBuffer` and all typed arrays are able to be stored as values in Deno KV
 entries are are able to be displayed in kview.

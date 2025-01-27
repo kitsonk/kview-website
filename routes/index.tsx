@@ -23,7 +23,7 @@ export default function Home() {
               </a>
             </h1>
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              View, edit, add, delete, watch, import and export your{" "}
+              View, edit, query, add, delete, watch, import and export your{" "}
               <a
                 href="https://deno.com/kv"
                 class="text-primary-700 dark:text-primary-500 underline underline-offset-4"
@@ -101,7 +101,7 @@ export default function Home() {
                     </path>
                   </svg>
                   <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">
-                    View, create and update entries
+                    View, query, create and update entries
                   </span>
                 </li>
                 <li class="flex space-x-3">

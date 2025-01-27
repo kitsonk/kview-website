@@ -1,4 +1,4 @@
-# Deno Deploy Stores
+# Deno Deploy stores
 
 kview is able to connect to Deno Deploy and provide navigation to any Deno KV
 stores available to an account.

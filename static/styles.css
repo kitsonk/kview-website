@@ -76,7 +76,7 @@
 }
 
 .markdown table {
-  @apply table-auto;
+  @apply table-auto mb-6;
 }
 
 .markdown th {

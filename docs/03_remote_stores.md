@@ -1,4 +1,4 @@
-# Remote Stores
+# Remote stores
 
 kview supports connecting to [remote stores](https://github.com/denoland/denokv)
 which are self hosted Deno KV stores which can be connected to via the Deno CLI.

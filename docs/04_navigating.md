@@ -23,6 +23,12 @@ When there are no "child" key parts, the arrow icon is displayed:
 
 When selecting a part with this, the value will be displayed.
 
+You can query/filter the store by selecting the filter icon:
+
+<svg height="20" width="20" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M18.796 4H5.204a1 1 0 0 0-.753 1.659l5.302 6.058a1 1 0 0 1 .247.659v4.874a.5.5 0 0 0 .2.4l3 2.25a.5.5 0 0 0 .8-.4v-7.124a1 1 0 0 1 .247-.659l5.302-6.059c.566-.646.106-1.658-.753-1.658Z"/></svg>
+
+For details see the [Querying and filtering](./query/) documentation.
+
 ## Value display
 
 When a key has been navigated to that contains a value, the value will be

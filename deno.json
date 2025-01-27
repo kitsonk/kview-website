@@ -2,7 +2,7 @@
   "lock": false,
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable-kv -A -",
     "manifest": "deno task cli manifest $(pwd)",
     "start": "deno run -A --unstable-kv --watch=static/,routes/,utils/,docs/ dev.ts",
     "build": "deno run -A --unstable-kv dev.ts build",
@@ -16,7 +16,7 @@
     "$components/": "./components/",
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
     "$islands/": "./islands/",
-    "@deno/gfm": "jsr:/@deno/gfm@0.9.0",
+    "@deno/gfm": "jsr:/@deno/gfm@0.10.0",
     "@kitsonk/ga4": "jsr:/@kitsonk/ga4@^0.1.0",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.3.0",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.8.0",

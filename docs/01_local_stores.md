@@ -1,4 +1,4 @@
-# Local Stores
+# Local stores
 
 ## Auto detected
 
