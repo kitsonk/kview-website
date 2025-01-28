@@ -18,14 +18,8 @@ information.
 All of the capabilities of the toolbox, plus others, are available as discreet
 exports from the library:
 
-- [Handling data as JSON](./kvtoolbox/json) - Deno KV entries, keys and values
-  support complex objects which are not easily represented in JSON, making it
-  difficult to accurately represent data in a browser or transfer data between
-  processes. The JSON library makes this possible by providing type safe
-  utilities to manage Deno KV data as JSON.
-- [Importing and exporting](./kvtoolbox/ndjson) - Building on top of the JSON
-  capabilities, there are utilities which allow the importing and exporting of
-  data of a Deno KV store, including the ability to stream that data over HTTP.
+- [Querying and filtering](./kvtoolbox/query) - Ability to querying Deno KV
+  stores with a fluent API.
 - [Working with keys](./kvtoolbox/keys) - A collection of utilities which make
   it easier to manage and structure keys in Deno KV in ways that can provide a
   higher order structure to data in a store.
@@ -44,9 +38,8 @@ exports from the library:
   to the store, that it may not have the ability to read data in the store
   without access to specific encryption keys. The toolbox provides mechanism to
   encrypt values at rest.
-- [Estimating sizes of data](./kvtoolbox/size_of) - One of the challenges of
-  managing data in a Deno KV store is dealing with the key and value size
-  limitations of Deno KV, especially anticipating if data is storable before
-  attempting a commit or transaction. The `sizeOf()` function provides an
-  estimate of byte size of a key or value when serialized for storage in Deno
-  KV.
+
+> [!IMPORTANT]
+> The JSON, NDJSON and size estimation capabilities of _kv-toolbox_ have been
+> contributed to [@deno/kv-utils](https://jsr.io/@deno/kv-utils) and are now
+> maintained there.

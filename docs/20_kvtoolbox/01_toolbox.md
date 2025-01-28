@@ -29,7 +29,7 @@ The KV toolbox provides all of the standard methods that work like the `Deno.Kv`
 methods:
 
 - [`.close()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.close)
-- [`.commitVersionStamp()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.commitVersionStamp)
+- [`.commitVersionstamp()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.commitVersionstamp)
 - [`.enqueue()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.enqueue)
 - [`.get()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.get)
 - [`.getMany()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.getMany)
@@ -48,10 +48,32 @@ provide enhanced functionality:
   Allows for an option to delete a toolbox blob instead of just a standard
   key/value.
 
+## Queries
+
+The ability to generate a new [Query](./query) is integrated within the toolbox:
+
+- [`.query()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.query) -
+  Returns a new instance of a `Query` which can be used to query the store.
+
 ## Blobs
 
 The ability to work arbitrarily size blobs is one of the core capabilities of
-the library that is integrated into the toolbox.
+the library that is integrated into the toolbox:
+
+- [`.getAsBlob()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.getAsBlob) -
+  Return a blob value from the store as an HTTP `Response` of which the body of
+  the response will be a streaming version of the content of the blob.
+- [`.getBlob()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.getBlob) -
+  Return an entry where the value is the blob that was originally set.
+- [`.getMeta()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.getMeta) -
+  Return the blob meta data related to a blob entry. This is useful when wanting
+  to understand information about the blob without actually reading the value
+  out of the store.
+- [`.setBlob()`](https://jsr.io/@kitsonk/kv-toolbox/doc/~/KvToolbox.prototype.setBlob) -
+  Set a blob value within the store.
+
+See the [Blobs](./blobs) documentation for more details on how the toolbox
+handles arbitrarily sized blob values.
 
 ## Key utilities
 

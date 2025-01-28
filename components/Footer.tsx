@@ -51,7 +51,7 @@ export default function Footer() {
           </li>
         </ul>
         <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2024{" "}
+          © 2025{" "}
           <a
             href="https://kitsonkelly.com/"
             target="_blank"

@@ -16,10 +16,7 @@ JavaScript. For example `1`, `3.1415`, `-42`, or `-2.7182`. All the typical
 constraints that apply to JavaScript numbers apply to values here, like maximum
 and minimum safe integers and the float precision.
 
-> [!IMPORTANT]
-> While Deno KV is able to store `Infinity` and `NaN`, kview doesn't currently
-> support these values. (See:
-> [kitsonk/kview#11](https://github.com/kitsonk/kview/issues/11))
+In addition `Infinity`, `-Infinity` and `NaN` can be entered and stored.
 
 ## Boolean
 

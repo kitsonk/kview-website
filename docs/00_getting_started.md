@@ -73,6 +73,7 @@ The following sections provide general information about interacting with
 stores:
 
 - [Navigating as store](/docs/navigating)
+- [Query and filtering](/docs/query)
 - [Datastore keys](/docs/keys)
 - [Datastore values](/docs/values)
 

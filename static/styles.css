@@ -150,7 +150,7 @@
 }
 
 .markdown .markdown-alert-note {
-  @apply border-l-blue-600 dark:border-l-blue-500;
+  @apply border-l-blue-600 dark:border-l-blue-500 my-4;
 }
 
 .markdown .markdown-alert-note .markdown-alert-title {
@@ -158,7 +158,7 @@
 }
 
 .markdown .markdown-alert-tip {
-  @apply border-l-green-600;
+  @apply border-l-green-600 my-4;
 }
 
 .markdown .markdown-alert-tip .markdown-alert-title {
@@ -166,7 +166,7 @@
 }
 
 .markdown .markdown-alert-important {
-  @apply border-l-purple-500;
+  @apply border-l-purple-500 my-4;
 }
 
 .markdown .markdown-alert-important .markdown-alert-title {
@@ -174,7 +174,7 @@
 }
 
 .markdown .markdown-alert-warning {
-  @apply border-l-yellow-600 dark:border-l-yellow-400;
+  @apply border-l-yellow-600 dark:border-l-yellow-400 my-4;
 }
 
 .markdown .markdown-alert-warning .markdown-alert-title {
@@ -182,7 +182,7 @@
 }
 
 .markdown .markdown-alert-caution {
-  @apply border-l-red-600;
+  @apply border-l-red-600 my-4;
 }
 
 .markdown .markdown-alert-caution .markdown-alert-title {

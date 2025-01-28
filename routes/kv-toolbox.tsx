@@ -24,16 +24,8 @@ export default function KvToolbox() {
               </a>
             </h1>
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              Serializing entries and values to JSON, importing and exporting
-              with{" "}
-              <a
-                href="https://github.com/ndjson/ndjson-spec"
-                class="text-primary-700 dark:text-primary-500 underline underline-offset-4"
-                target="_blank"
-              >
-                NDJSON
-              </a>, working with blobs, utilities for working with keys, batched
-              atomic transactions and more.
+              Querying stores, working with blobs, utilities for keys, batched
+              atomic transactions, encrypting values, and more.
             </p>
             <div class="mt-8 flex flex-col justify-center md:justify-start sm:flex-row gap-4">
               <div>
@@ -52,6 +44,43 @@ export default function KvToolbox() {
               src="/logo-kv-toolbox.svg"
               alt="the kv-toolbox logo: a toolbox with several tools in it"
             />
+          </div>
+        </div>
+      </section>
+      <section class="bg-white px-4 py-8 antialiased dark:bg-gray-900 md:py-16">
+        <div class="mx-auto grid max-w-screen-xl rounded-lg bg-gray-50 p-4 dark:bg-gray-800 md:p-8 lg:grid-cols-12 lg:gap-8 lg:p-16 xl:gap-16">
+          <div class="lg:col-span-5 lg:mt-0">
+            <a href="https://jsr.io/@deno/kv-utils" target="_blank">
+              <img
+                class="mb-4 h-40 w-40 sm:h-56 sm:w-56 md:h-full md:w-full"
+                src="/images/deno_logo.svg"
+                alt="Deno the dinosaur"
+              />
+            </a>
+          </div>
+          <div class="me-auto place-self-center lg:col-span-7">
+            <h1 class="mb-3 text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-4xl">
+              Official{" "}
+              <a
+                href="https://jsr.io/@deno/kv-utils"
+                class="text-primary-700 dark:text-primary-500 underline"
+                target="_blank"
+              >
+                <code>@deno/kv-utils</code>
+              </a>{" "}
+              adopts core <code>kv-toolbox</code> capabilities.
+            </h1>
+            <p class="mb-6 text-gray-500 dark:text-gray-400">
+              JSON serialization, NDJSON import/export, and estimating the size
+              of entries are now part of the official Deno KV utilities library.
+            </p>
+            <a
+              href="https://jsr.io/@deno/kv-utils"
+              target="_blank"
+              class="inline-flex items-center justify-center rounded-lg bg-primary-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+            >
+              Check it out
+            </a>
           </div>
         </div>
       </section>
@@ -89,103 +118,33 @@ kv.close();
         <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
           <CodeBlock
             code={`import {
-  generateKey,
-  openCryptoKv,
-} from "@kitsonk/kv-toolbox/crypto";
+  query,
+  Filter
+} from "@kitsonk/kv-toolbox/query";
 
-const kv = await openCryptoKv(generateKey());
-const res = await kv.setBlob(
-  ["hello"],
-  window.crypto.getRandomValues(new Uint8Array(65_536)),
-);
-if (res.ok) {
-  const maybeValue = await kv.getBlob(["hello"]);
-  await kv.deleteBlob(["hello"]);
+const db = await Deno.openKv();
+const result = query(db, { prefix: [] })
+  .where(Filter.or(
+    Filter.where("age", "<", 10),
+    Filter.where("age", ">", 20),
+  ))
+  .get();
+for await (const entry of result) {
+  console.log(entry);
 }
-kv.close();
+db.close();
 `}
           />
           <div class="mt-4 md:mt-0">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-              Store encrypted values
+              Querying and filtering
             </h2>
             <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
-              Encrypt and decrypt Deno KV values, ensuring that data at rest is
-              secure.
+              A fluent API for querying Deno KV stores, including deep queries
+              into values of entries.
             </p>
             <a
-              href="https://jsr.io/@kitsonk/kv-toolbox/doc/crypto/~"
-              target="_blank"
-              class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
-            >
-              See the docs
-            </a>
-          </div>
-        </div>
-      </section>
-      <section class="bg-white dark:bg-gray-900">
-        <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-          <div class="mt-4 md:mt-0">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-              Represent Deno KV data as JSON
-            </h2>
-            <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
-              Safely serialize and deserialize Deno KV entries, keys and values.
-              Making it possible to work on KV data in browsers or other
-              runtimes.
-            </p>
-            <a
-              href="https://jsr.io/@kitsonk/kv-toolbox/doc/json/~"
-              target="_blank"
-              class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
-            >
-              See the docs
-            </a>
-          </div>
-          <CodeBlock
-            code={`import {
-  entryToJSON,
-  entryMaybeToJSON,
-  keyPartToJSON,
-  keyToJSON,
-  valueToJSON,
-  toEntry,
-  toEntryMaybe,
-  toKeyPart,
-  toKey,
-  toValue,
-} from "@kitsonk/kv-toolbox/json";
-`}
-          />
-        </div>
-      </section>
-      <section class="bg-white dark:bg-gray-900">
-        <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-          <CodeBlock
-            code={`import {
-  exportEntries,
-  exportToResponse,
-  importEntries,
-  LineTransformStream,
-} from "@kitsonk/kv-toolbox/ndjson";
-`}
-          />
-          <div class="mt-4 md:mt-0">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-              Handle streaming Deno KV data
-            </h2>
-            <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
-              New line delimitated JSON (<a
-                href="https://github.com/ndjson/ndjson-spec"
-                class="text-primary-700 dark:text-primary-500 underline underline-offset-2"
-                target="_blank"
-              >
-                NDJSON
-              </a>) is the most straight forward way of handling Deno KV data in
-              a serialized format.
-            </p>
-            <a
-              href="https://jsr.io/@kitsonk/kv-toolbox/doc/ndjson/~"
+              href="https://jsr.io/@kitsonk/kv-toolbox/doc/query/~"
               target="_blank"
               class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
             >
@@ -303,6 +262,44 @@ await batchedAtomic(kv)
 await kv.close();
 `}
           />
+        </div>
+      </section>
+      <section class="bg-white dark:bg-gray-900">
+        <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+          <CodeBlock
+            code={`import {
+  generateKey,
+  openCryptoKv,
+} from "@kitsonk/kv-toolbox/crypto";
+
+const kv = await openCryptoKv(generateKey());
+const res = await kv.setBlob(
+  ["hello"],
+  window.crypto.getRandomValues(new Uint8Array(65_536)),
+);
+if (res.ok) {
+  const maybeValue = await kv.getBlob(["hello"]);
+  await kv.deleteBlob(["hello"]);
+}
+kv.close();
+`}
+          />
+          <div class="mt-4 md:mt-0">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+              Store encrypted values
+            </h2>
+            <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
+              Encrypt and decrypt Deno KV values, ensuring that data at rest is
+              secure.
+            </p>
+            <a
+              href="https://jsr.io/@kitsonk/kv-toolbox/doc/crypto/~"
+              target="_blank"
+              class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900"
+            >
+              See the docs
+            </a>
+          </div>
         </div>
       </section>
       <Footer />
